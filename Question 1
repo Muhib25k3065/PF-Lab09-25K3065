@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int transactions(int limit);
+int main()
+{
+	int limit = 5000;
+	int result = transactions(limit);
+	printf("\nThe remaining limit is: %d", result);
+	
+	return 0;
+}
+
+int transactions(int limit)
+{
+	int transaction;
+	
+	printf("Enter the transaction amount: ");
+	scanf("%d", &transaction);
+	
+	if(transaction <= limit)
+	{
+		limit = limit - transaction;
+		printf("\nApproved");
+	}	else	{
+		printf("\nDeclined");
+	}
+	return limit;
+}
