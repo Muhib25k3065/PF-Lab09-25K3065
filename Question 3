@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+int temperature(int temp);
+int main()
+{
+	int code, temp;
+	
+	printf("Enter the current temperature in celcius: ");
+	scanf("%d", &temp);
+	
+	code = temperature(temp);
+	
+	if (code == 1)
+	{
+		printf("HEAT ALERT");
+	}	else if (code == 2)
+	{
+		printf("COLD ALERT");
+	}	else if (code == 3)
+	{
+		printf("COMFORT ZONE");
+	}	else if (code == 4)
+	{
+		printf("NORMAL CONDITIONS");
+	}
+
+	return 0;
+}
+
+int temperature(int temp)
+{
+	if (temp > 35)
+	{
+		return 1;
+	}	else if (temp < 10)
+	{
+		return 2;
+	}	else if (temp > 15 && temp < 25)
+	{
+		return 3;
+	}	else	{
+		return 4;
+	}	
+}
