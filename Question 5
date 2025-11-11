@@ -1,0 +1,50 @@
+#include <stdio.h>
+
+float bill(float cost, int num);
+
+int main()
+{
+	
+	float cost, bill2;
+	int num;
+	
+	printf("Enter the cost of food: ");
+	scanf("%f", &cost);
+	printf("Enter the number of people: ");
+	scanf("%d", &num);
+	
+	bill2 = bill(cost,num);
+	
+	printf("The total bill including all charges is: %.2f", bill2);
+
+	return 0;
+}
+
+float bill(float cost, int num)
+{
+	
+	int tip, service, tax = 8;
+	
+	if ( cost > 50 )
+	{
+		tip = 15;
+	}	else	{
+		tip = 10;
+	}
+	
+	if ( num > 6 )
+	{
+		service = 5;
+	}	else	{
+		service = 0;
+	}
+	
+	float bill;
+	
+	bill = cost + (cost*tax/100);
+	bill = bill + (cost*tip/100);
+	bill = bill + (cost*service/100);
+	
+	return bill;
+	
+}
