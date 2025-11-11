@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+float shipping();
+
+int main()
+{
+	
+	float cost = shipping();
+
+	printf("The total cost is: %.2f", cost);
+
+	return 0;
+}
+
+float shipping()
+{
+	
+	float a, w;
+	
+	printf("Enter the order amount in dollars: ");
+	scanf("%f", &a);
+	
+	if ( a > 100 )
+	{
+		return a;
+	}
+	
+	printf("Enter the package weight in kg: ");
+	scanf("%f", &w);
+		
+	if ( w < 2 )
+	{
+		return a + 10;
+	}
+
+	if ( w > 2 && w < 5 )
+	{
+		return a + 15;
+	}
+	
+	if ( w > 5 )
+	{
+		return a + 20;
+	}
+	
+}
