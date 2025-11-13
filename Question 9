@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+int main() {
+    int a = 100, b = 200, c = 300;
+    int *p1 = &a, *p2 = &b, *p3 = &c;
+    int *temp;
+
+    printf("=== Pointer Swapping and Manipulation ===\n");
+
+    printf("Initial values: a = %d, b = %d, c = %d\n", a, b, c);
+
+    temp = p1;
+    p1 = p2;   
+    p2 = p3;  
+    p3 = temp; 
+
+    *p1 += 50;   
+    *p2 -= 100;  
+    *p3 *= 2;   
+
+    printf("\nAfter first manipulation:\n");
+    printf("a = %d, b = %d, c = %d\n", a, b, c);
+
+    p1 = &c;
+    p2 = &a;
+    p3 = &b;
+
+    *p1 += 25; 
+    *p2 -= 50;   
+    *p3 *= 2;   
+
+    printf("\nFinal values after all operations:\n");
+    printf("a = %d\n", a);
+    printf("b = %d\n", b);
+    printf("c = %d\n", c);
+
+    return 0;
+}
