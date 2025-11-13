@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    int grid[3][4] = {
+        {1,  2,  3,  4},
+        {5,  6,  7,  8},
+        {9, 10, 11, 12}
+    };
+
+	int i;
+    int *ptr = &grid[0][0];  
+    int *ptr2 = &grid[1][0];  
+
+    printf("=== Pointer Grid Operations ===\n");
+
+    printf("1. *ptr: %d\n", *ptr);        
+    printf("2. *(ptr + 5): %d\n", *(ptr + 5));
+    printf("3. *(ptr + 10): %d\n", *(ptr + 10)); 
+    printf("4. *ptr2: %d\n", *ptr2);        
+    printf("5. ptr2[2]: %d\n", ptr2[2]);    
+    printf("6. ptr2[-1]: %d\n", ptr2[-1]);   
+
+    printf("\n7. Elements divisible by 3: ");
+    for (i = 0; i < 12; i++) {
+        if (*(ptr + i) % 3 == 0)
+            printf("%d ", *(ptr + i));
+    }
+
+    int *lastPtr = &grid[0][0] + (3 * 4) - 1;
+    printf("\n8. Last element using pointer arithmetic: %d\n", *lastPtr);
+
+    return 0;
+}
