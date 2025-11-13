@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+double calculateRentalCost(int days, double kilometers) {
+    double baseRate = 40.0;
+    double totalCost;
+    double extraKm = 0.0;
+    double allowedKm = days * 100; 
+
+    totalCost = days * baseRate;
+
+    if (kilometers > allowedKm) {
+        extraKm = kilometers - allowedKm;
+        totalCost += extraKm * 0.25;
+    }
+
+    if (days >= 7) {
+        totalCost *= 0.90; 
+    }
+
+    return totalCost;
+}
+
+int main() {
+    int days;
+    double kilometers, totalCost;
+
+    printf("Enter number of rental days: ");
+    scanf("%d", &days);
+
+    printf("Enter total kilometers driven: ");
+    scanf("%lf", &kilometers);
+
+    totalCost = calculateRentalCost(days, kilometers);
+
+    printf("\n--- Rental Summary ---\n");
+    printf("Days Rented: %d\n", days);
+    printf("Kilometers Driven: %.2f km\n", kilometers);
+    printf("Total Cost: $%.2f\n", totalCost);
+
+    return 0;
+}
